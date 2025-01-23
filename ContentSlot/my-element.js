@@ -8,7 +8,14 @@ class myElement extends HTMLElement {
         const template = document.createElement('template')
             template.innerHTML = `
             <section>
-                <h2 class="title"><slot></slot></h2>
+                <h2 class="title">
+                    <slot name="paragraph-1"></slot>
+                </h2>
+                <div>
+                    <p class="text">
+                        <slot name="paragraph-2"></slot>
+                    </p>
+                </div>
             </section>
             ${this.getStyles()}
         `
@@ -19,7 +26,7 @@ class myElement extends HTMLElement {
         return `
             <style>
                 .title{
-                    color: aqua;
+                    color: firebrick;
                 } 
                 .text{
                     color: dodgerblue;
