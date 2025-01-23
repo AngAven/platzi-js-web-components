@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using Content Slot</title>
+</head>
+<body>
+<h1>:host</h1>
+
+<my-element class="blue">
+    <span slot="paragraph-1">Paragraph 1 | Multi Slot Content</span>
+    <span slot="paragraph-2">Paragraph 2 | Multi Slot Content</span>
+</my-element>
+<my-element>
+    <span slot="paragraph-1">Paragraph 1 | Multi Slot Content</span>
+    <span slot="paragraph-2">Paragraph 2 | Multi Slot Content</span>
+</my-element>
+
+<article class="card">
+    <my-element yellow>
+        <span slot="paragraph-1">Paragraph 1 | Multi Slot Content</span>
+        <span slot="paragraph-2">Paragraph 2 | Multi Slot Content</span>
+    </my-element>
+</article>
+
+<article class="card">
+    <my-element yellow>
+        <span slot="paragraph-1" class="boltText">
+            <span class="boltText">Paragraph 1</span> | Multi Slot Content</span>
+        <span slot="paragraph-2">Paragraph 2 | Multi Slot Content</span>
+        <p slot="paragraph-3">Paragraph 3</p>
+    </my-element>
+</article>
+
+<script type="module" src="my-element.js"></script>
+</body>
+</html>
