@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using Shadow DOM</title>
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        .title{
+            color: bisque;
+        }
+
+        .text{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h2 class="title">Title from html</h2>
+<div>
+    <p class="text">p from HTML</p>
+</div>
+
+<my-element></my-element>
+
+<script type="module" src="my-element.js"></script>
+<script>
+    const a = document.querySelectorAll('.title')
+    console.log(a)
+</script>
+</body>
+</html>
