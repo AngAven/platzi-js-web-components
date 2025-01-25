@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Using Content Slot</title>
+  <style>
+    my-element{
+      --primary-color: aqua;
+      --heading-primary: 10px;
+    }
+
+    .second{
+      --heading-primary: 25px;
+      --primary-color: #3d3db9;
+    }
+  </style>
+</head>
+<body>
+<h1>::sloted</h1>
+
+<my-element>
+  <div slot="title">Title</div>
+  <span class="highlight" slot="highlight">Paragraph</span>
+  <span slot="paragraph">
+         | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorum et impedit iste iusto laboriosam officia omnis rem soluta. Adipisci aut fuga obcaecati officia quos sapiente, sit sunt unde veritatis?
+    </span>
+</my-element>
+
+<my-element class="second">
+  <div slot="title">Title</div>
+  <span class="highlight" slot="highlight">Paragraph</span>
+  <span slot="paragraph">
+         | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorum et impedit iste iusto laboriosam officia omnis rem soluta. Adipisci aut fuga obcaecati officia quos sapiente, sit sunt unde veritatis?
+    </span>
+</my-element>
+
+<my-element>
+  <div slot="title">Title</div>
+  <span class="highlight" slot="highlight">Paragraph</span>
+  <span slot="paragraph">
+         | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorum et impedit iste iusto laboriosam officia omnis rem soluta. Adipisci aut fuga obcaecati officia quos sapiente, sit sunt unde veritatis?
+    </span>
+</my-element>
+
+<script type="module" src="my-element.js"></script>
+</body>
+</html>
