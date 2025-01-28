@@ -1,7 +1,35 @@
-class ProductCard extends HTMLElement {
+class productCard extends HTMLElement {
     constructor() {
         super()
         this.attachShadow({mode: 'open'})
+    }
+
+    static get observedAttributes(){
+        return ['img', 'title', 'price', 'description', 'collection']
+    }
+
+    attributeChangedCallback(attr, oldValue, newValue){
+        if (oldValue === newValue) return
+
+        if (attr === 'img') {
+            this.img = newValue
+        }
+
+        if (attr === 'title') {
+            this.title = newValue
+        }
+
+        if (attr === 'price') {
+            this.price = newValue
+        }
+
+        if (attr === 'description') {
+            this.description = newValue
+        }
+
+        if (attr === 'collection') {
+            this.collection = newValue
+        }
     }
 
     getTemplate() {
@@ -9,16 +37,14 @@ class ProductCard extends HTMLElement {
         template.innerHTML = `
         <main class="container">
             <section class="imgBox">
-                <img src="./imgs/nike-blue.png" alt="" />
+                <img src="${this.img}" alt="Running shoes" />
             </section>
             <section class="details">
                 <div class="content">
-                <h2>Title</h2>
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequuntur culpa, ducimus excepturi incidunt iste, maxime nemo nulla, odio perspiciatis praesentium reiciendis rerum. Ad laudantium libero nesciunt nostrum quaerat ratione!
-                </p>
-                <h3>$500 USD</h3>
-                <button>Buy</button>
+                    <h2>${this.title} <span>${this.collection}</span></h2>
+                    <p>${this.description}</p>
+                    <h3>${this.price}</h3>
+                    <button>Buy</button>
                 </div>
             </section>
         </main>
@@ -152,7 +178,7 @@ class ProductCard extends HTMLElement {
           }
       }
       </style>
-    `;
+    `
     }
 
     render() {
@@ -164,9 +190,4 @@ class ProductCard extends HTMLElement {
     }
 }
 
-customElements
-    .define(
-        'product-card'
-        ,
-        ProductCard
-    )
+customElements.define('product-card', productCard)
