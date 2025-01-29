@@ -6,7 +6,7 @@ class myElement extends HTMLElement {
 
     getTemplate() {
         const template = document.createElement('template')
-            template.innerHTML = `
+        template.innerHTML = `
             <section>
                 <h1 class="title">
                     <slot name="title"></slot>
@@ -15,6 +15,7 @@ class myElement extends HTMLElement {
                     <p class="text">
                         <slot name="bold"></slot>
                         <slot name="paragraph"></slot>
+                        <slot name="div-slot"></slot>
                     </p>
                 </div>
             </section>
@@ -27,6 +28,10 @@ class myElement extends HTMLElement {
     getStyles() {
         return `
             <style>
+                ::slotted(*){
+                    text-align: center;
+                }
+                
                 ::slotted(span){
                     font-size: 30px;
                     color: red;
@@ -35,6 +40,12 @@ class myElement extends HTMLElement {
                 ::slotted(.bold){
                     font-weight: bold;
                     color: aqua;
+                }
+                
+                ::slotted(div.paragraph-2){
+                    font-weight: bolder;
+                    color: pink;
+                    font-size: 30px;
                 }
             </style>
         `
